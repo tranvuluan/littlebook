@@ -1,6 +1,6 @@
 <?php
-define("DB_HOST", "localhost");
-define("DB_USER", "luantran");
-define("DB_PASS", "luan2001");
-define("DB_NAME", "littlebook");
+define("DB_HOST", "remotemysql.com");
+define("DB_USER", "TjhdqIdohO");
+define("DB_PASS", "DMSYxKo6F5");
+define("DB_NAME", "TjhdqIdohO");
 ?>
