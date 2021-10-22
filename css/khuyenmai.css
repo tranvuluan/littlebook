@@ -1,0 +1,53 @@
+
+.bars-bottom {
+    margin-top: 2px!important;
+}
+
+/*khuyến mãi*/
+.bg-img{
+    position: relative;
+    top: -4px;
+}
+.img-buy{
+    position: absolute;
+    top: 300px;
+    right: 127px;
+}
+.bg-discount{
+    background-color: #5abecf;
+    height: 650px;
+}
+.text-dis{
+    font-family: arial;
+    font-weight: bold;
+    font-size: 40;
+    text-align: center;
+}
+.text-dis-code{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 30;
+    text-align: center;
+}
+.bg-dis-code{
+    background-color: #ffffff;
+    height: 200px;
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.dis-code1{
+    padding-left: 40px;
+    display: inline;
+}
+.bg-dis-code1{
+    background-color: #ffffff;
+    height: 150px;
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.dis-code2{
+    padding-left: 25px;
+    display: inline;
+}
