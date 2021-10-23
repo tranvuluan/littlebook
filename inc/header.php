@@ -243,27 +243,4 @@ Session::init();
                 </div>
             </div>
         </div>
-    </div>
-    <div class="quangcao">
-        <div class="container">
-            <div class="row">
-                <amp-auto-ads type="adsense" data-ad-client="ca-pub-2413991138251670">
-                </amp-auto-ads>
-            </div>
-            <div class="row">
-                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                <!-- Quảng cáo index -->
-                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2413991138251670" data-ad-slot="5175645061" data-ad-format="auto" data-full-width-responsive="true"></ins>
-                <script>
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-            </div>
-            <div class="row">
-                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                <ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="+x+s9-x-5f+d7" data-ad-client="ca-pub-2413991138251670" data-ad-slot="3064487042"></ins>
-                <script>
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-            </div>
-        </div>
-    </div>
+    </div>``
