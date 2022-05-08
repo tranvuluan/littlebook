@@ -20,7 +20,7 @@ Class Database{
  
 private function connectDB(){
    $this->link = new mysqli($this->host, $this->user, $this->pass, 
-    $this->dbname);
+    $this->dbname, 3306);
    if(!$this->link){
      $this->error ="Connection fail".$this->link->connect_error;
     return false;
