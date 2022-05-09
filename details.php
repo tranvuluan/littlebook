@@ -23,7 +23,7 @@ if (!isset($_SESSION['token'])) {
 echo '<pre>';
 echo   'token='.$_SESSION['token'];
 echo '</pre>';
-if (isset($_GET['id_book'])) {
+if (isset($_GET['id_book']) && isset($_SESISON['token'])) {
     $id_book = $_GET['id_book'];
     $showBookById = $book->showBookByID($id_book);
     $result = $showBookById->fetch_assoc();
