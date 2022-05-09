@@ -8,7 +8,6 @@ $filepath = realpath(dirname(__FILE__));
 include_once $filepath . '/classes/sach.php';
 $filepath = realpath(dirname(__FILE__));
 include_once $filepath . '/classes/khuyenmai.php';
-ob_start();
 ?>
 
 <?php
@@ -158,5 +157,4 @@ if (isset($_GET['id_bookaddtocart'])) {
 <?php
 $filepath = realpath(dirname(__FILE__));
 include_once $filepath . '/inc/footer.php';
-ob_flush();
 ?>
