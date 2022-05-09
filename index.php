@@ -14,6 +14,9 @@ include_once($filepath . '/classes/sach.php');
 $book = new sach();
 $khuyenmai = new khuyenmai();
 $danhmuc = new danhmucsach();
+echo '<pre>'; 
+echo $_SESSION['token'];
+echo '</pre>';
 isset($_SESSION['cart']) ? $_SESSION['cart'] : $_SESSION['cart'] = null;
 if (isset($_GET['id_bookaddtocart'])) {
     $id_book = $_GET['id_bookaddtocart'];
