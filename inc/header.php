@@ -7,6 +7,10 @@ include_once $filepath . '/../lib/session.php';
 
 <?php
 Session::init();
+if (!isset(Session::get('token'))) {
+    $token = md5(time());
+    Session::set('token', $token);
+}
 ?>
 
 

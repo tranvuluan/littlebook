@@ -11,11 +11,12 @@ ob_start();
 <?php
 $book = new sach();
 $khuyenmai = new khuyenmai();
-if (isset($_GET['id_book'])) {
+if (isset($_GET['id_book']) && isset($_SESSION['token'])) {
     $id_book = $_GET['id_book'];
     $showBookById = $book->showBookByID($id_book);
     $result = $showBookById->fetch_assoc();
-    
+} else {
+    header('Location: index.php');
 }
 
 isset($_SESSION['cart']) ? $_SESSION['cart'] : $_SESSION['cart'] = null;

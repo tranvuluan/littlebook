@@ -119,6 +119,7 @@ class sach
 
     public function showBookByID($id_book)
     {
+        $id_book = mysqli_real_escape_string($this->db->link, $id_book);
         $query = "SELECT * FROM tbl_book WHERE id_book = '$id_book'";
         $result = $this->db->select($query);
         return $result;
