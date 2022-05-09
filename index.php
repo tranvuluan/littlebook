@@ -215,7 +215,7 @@ if (isset($_GET['id_bookaddtocart'])) {
 
                                                                 echo $imagepath[0] ?>" alt="">
                             </div>
-                            <a onclick="showdetails(this)" href="details.php?id_book=<?php echo $result['id_book'] ?>">
+                            <a onclick="showdetails(this)" href="details.php?id_book=<?php echo $result['id_book'] ?>&token=<?php echo $_SESSION['token'] ?>">
                                 <h6 class="name" data-index="0"><?php echo $result['name_book'] ?></h6>
                                 <h5 class="price"><?php echo $result['price_book'] * (1 - $result['discountpercent']) ?>đ</h5>
                                 <h6 class="origin-price" style="text-decoration: line-through;display: inline;"><?php echo $result['price_book'] ?>đ</h6>
