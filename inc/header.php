@@ -4,19 +4,6 @@ include_once $filepath . '/../lib/session.php';
 
 ?>
 
-<?php
-if (!isset($_SESSION)) {
-    session_start();
-}
-if (!isset($_SESSION['token'])) {
-    $token = md5(time());
-    echo '<pre>';
-    echo 'TOKEN='.$token;
-    echo '</pre';
-    $_SESISON['token'] = $token;
-}
-?>
-
 
 <!doctype html>
 <html lang="en">
@@ -46,6 +33,18 @@ if (!isset($_SESSION['token'])) {
 </head>
 
 <body>
+    <?php
+    if (!isset($_SESSION)) {
+        session_start();
+    }
+    if (!isset($_SESSION['token'])) {
+        $token = md5(time());
+        echo '<pre>';
+        echo 'TOKEN=' . $token;
+        echo '</pre';
+        $_SESISON['token'] = $token;
+    }
+    ?>
     <!--Header-->
     <!-- Banner (logo,slogan) -->
     <div class="_top">
