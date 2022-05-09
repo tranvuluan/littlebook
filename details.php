@@ -28,7 +28,7 @@ if (isset($_GET['id_book']) && isset($_SESSION['token'])) {
     $showBookById = $book->showBookByID($id_book);
     $result = $showBookById->fetch_assoc();
 } else {
-    // header('Location: index.php');
+    header('Location: index.php');
 }
 
 isset($_SESSION['cart']) ? $_SESSION['cart'] : $_SESSION['cart'] = null;
