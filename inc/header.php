@@ -9,6 +9,9 @@ include_once $filepath . '/../lib/session.php';
 Session::init();
 if (!isset($_SESSION['token'])) {
     $token = md5(time());
+    echo '<pre>';
+    echo 'TOKEN='.$token;
+    echo '</pre';
     $_SESISON['token'] = $token;
 }
 ?>
