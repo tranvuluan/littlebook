@@ -13,6 +13,7 @@ $token = $_COOKIE['token'];
 echo 'token'.$token;
 $book = new sach();
 $khuyenmai = new khuyenmai();
+echo $_COOKIE['token'];
 if ($_COOKIE['token'] == $_GET['token']) {
     if (isset($_GET['id_book'])) {
         $id_book = $_GET['id_book'];
@@ -21,7 +22,7 @@ if ($_COOKIE['token'] == $_GET['token']) {
         
     }
 } else {
-    header('Location: index.php');
+    // header('Location: index.php');
 }
 
 
