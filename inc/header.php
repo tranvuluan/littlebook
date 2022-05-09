@@ -9,15 +9,7 @@ include_once $filepath . '/../lib/session.php';
 Session::init();
 
 ?>
-<?php
-if (!isset($_COOKIE['token'])) {
-$name = 'token';
-$value = md5(time());
-$expire = time() + (86400 * 90);
-$path = '/';
-setcookie($name, $value,$expire ,$path);
-}
-?>
+
 
 
 <!doctype html>     

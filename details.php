@@ -9,21 +9,16 @@ ob_start();
 ?>
 
 <?php
-$token = $_COOKIE['token'];
-echo 'token'.$token;
+
 $book = new sach();
 $khuyenmai = new khuyenmai();
 
-if ($token == $_GET['token']) {
-    if (isset($_GET['id_book'])) {
-        $id_book = $_GET['id_book'];
-        $showBookById = $book->showBookByID($id_book);
-        $result = $showBookById->fetch_assoc();
-        
-    }
+if (isset($_GET['id_book'])) {
+    $id_book = $_GET['id_book'];
+    $showBookById = $book->showBookByID($id_book);
+    $result = $showBookById->fetch_assoc();
 } else {
     header('Location: 404.php');
-    exit(-1);
 }
 
 
@@ -54,7 +49,7 @@ if (isset($_GET['id_bookaddtocart'])) {
     } else
         $_SESSION['cart'][$id_book]['quantity']++;
     unset($_GET['id_book']);
-    header('Location: details.php?id_book='.$id_book);
+    header('Location: details.php?id_book=' . $id_book);
 }
 ?>
 <!-- Kết thúc header -->
@@ -66,11 +61,11 @@ if (isset($_GET['id_bookaddtocart'])) {
 
 <div class="deltails-content">
     <div class="deltails-content-left">
-        <img id="del-img" src="<?php 
+        <img id="del-img" src="<?php
                                 $strimage = $result['image_book'];
-                                $arrimg = explode(",",$strimage);
-                                echo 'uploads/images/book/'.$arrimg[0];
-                            ?>" alt="">
+                                $arrimg = explode(",", $strimage);
+                                echo 'uploads/images/book/' . $arrimg[0];
+                                ?>" alt="">
     </div>
     <div class="deltails-content-right">
         <h4 id="del-title" class="del-name-product" style="text-transform: uppercase;">
@@ -109,7 +104,7 @@ if (isset($_GET['id_bookaddtocart'])) {
                 <div class="button buy">MUA NGAY</div>
             </a>
 
-            <a href="?id_bookaddtocart=<?php echo $result['id_book']?>" onclick="alert('Đã thêm sách vào giỏ hàng');" style="margin-left: 30px; float: left;width: 190px; height: 37px; cursor: pointer;">
+            <a href="?id_bookaddtocart=<?php echo $result['id_book'] ?>" onclick="alert('Đã thêm sách vào giỏ hàng');" style="margin-left: 30px; float: left;width: 190px; height: 37px; cursor: pointer;">
                 <div class="button addcart">THÊM VÀO GIỎ HÀNG</div>
             </a>
 
@@ -117,46 +112,46 @@ if (isset($_GET['id_bookaddtocart'])) {
     </div>
 </div>
 <div class="deltails-description">
-        <div style="padding-left: 20px;">
-            <h2>Mô tả sách</h2>
-        </div>
-        <div style="padding-left: 40px">
-            <form action="#">
+    <div style="padding-left: 20px;">
+        <h2>Mô tả sách</h2>
+    </div>
+    <div style="padding-left: 40px">
+        <form action="#">
             <?php echo $result['description_book'] ?>
-            </form>
-        </div>
+        </form>
     </div>
-    <br>
-    <div class="deltails-comments">
-        <div style="padding-left: 20px;">
-            <h2>Nhận xét đánh giá</h2>
-        </div>
-        <div style="padding-left: 20px;">
-            <form action="#" method="post">
-                <div style="margin-left: 15px">
-                    <span style="margin-bottom: 20px">Đánh giá sản phẩm</span>
-                    <div class="rate">
-                        <input type="radio" id="star5" name="rate" value="5" />
-                        <label for="star5" title="text">5 stars</label>
-                        <input type="radio" id="star4" name="rate" value="4" />
-                        <label for="star4" title="text">4 stars</label>
-                        <input type="radio" id="star3" name="rate" value="3" />
-                        <label for="star3" title="text">3 stars</label>
-                        <input type="radio" id="star2" name="rate" value="2" />
-                        <label for="star2" title="text">2 stars</label>
-                        <input type="radio" id="star1" name="rate" value="1" />
-                        <label for="star1" title="text">1 star</label>
-                      </div>
-                </div>
-                <div class="input-comments" style="margin: 15px 35px 10px 15px">
-                    <span>Viết bình luận của bạn tại đây</span>
-                    <textarea id="commentsText" rows="8" placeholder="Viết bình luận của bạn đây." class="form-control input"></textarea>
-                </div>
-                <input class="btn btn-success" type="submit" value="Gửi">
-            </form>
-            
-        </div>
+</div>
+<br>
+<div class="deltails-comments">
+    <div style="padding-left: 20px;">
+        <h2>Nhận xét đánh giá</h2>
     </div>
+    <div style="padding-left: 20px;">
+        <form action="#" method="post">
+            <div style="margin-left: 15px">
+                <span style="margin-bottom: 20px">Đánh giá sản phẩm</span>
+                <div class="rate">
+                    <input type="radio" id="star5" name="rate" value="5" />
+                    <label for="star5" title="text">5 stars</label>
+                    <input type="radio" id="star4" name="rate" value="4" />
+                    <label for="star4" title="text">4 stars</label>
+                    <input type="radio" id="star3" name="rate" value="3" />
+                    <label for="star3" title="text">3 stars</label>
+                    <input type="radio" id="star2" name="rate" value="2" />
+                    <label for="star2" title="text">2 stars</label>
+                    <input type="radio" id="star1" name="rate" value="1" />
+                    <label for="star1" title="text">1 star</label>
+                </div>
+            </div>
+            <div class="input-comments" style="margin: 15px 35px 10px 15px">
+                <span>Viết bình luận của bạn tại đây</span>
+                <textarea id="commentsText" rows="8" placeholder="Viết bình luận của bạn đây." class="form-control input"></textarea>
+            </div>
+            <input class="btn btn-success" type="submit" value="Gửi">
+        </form>
+
+    </div>
+</div>
 <?php
 $filepath = realpath(dirname(__FILE__));
 include_once $filepath . '/inc/footer.php';

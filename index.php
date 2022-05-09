@@ -212,7 +212,7 @@ if (isset($_GET['id_bookaddtocart'])) {
 
                                                                 echo $imagepath[0] ?>" alt="">
                             </div>
-                            <a onclick="showdetails(this)" href="details.php?token=<?php echo $_COOKIE['token'] ?>&id_book=<?php echo $result['id_book'] ?>">
+                            <a onclick="showdetails(this)" href="details.php?&id_book=<?php echo $result['id_book'] ?>">
                                 <h6 class="name" data-index="0"><?php echo $result['name_book'] ?></h6>
                                 <h5 class="price"><?php echo $result['price_book'] * (1 - $result['discountpercent']) ?>đ</h5>
                                 <h6 class="origin-price" style="text-decoration: line-through;display: inline;"><?php echo $result['price_book'] ?>đ</h6>
@@ -274,7 +274,7 @@ if (isset($_GET['id_bookaddtocart'])) {
                                     <img src="uploads/images/book/<?php $imagepath = explode(',', $result1['image_book']);
                                                                     echo $imagepath[0]; ?>" alt="">
                                 </div>
-                                <a onclick="showdetails(this)" href="details.php?token=<?php echo $_COOKIE['token'] ?>&id_book=<?php echo $result1['id_book'] ?>">
+                                <a onclick="showdetails(this)" href="details.php?id_book=<?php echo $result1['id_book'] ?>">
                                     <h6 class="name" data-index="0"><?php echo $result1['name_book'] ?></h6>
                                     <?php
                                     if ($result1['salecheck_book'] === '2') {

@@ -119,12 +119,14 @@ class sach
 
     public function showBookByID($id_book)
     {
-        $id_book = mysqli_real_escape_string($this->db->link, $id_book);
+        $reg = "/^(\s*?)select\s*?.*?\s*?from([\s]|[^;])*?;\s*?$/i";
         $query = "SELECT * FROM tbl_book WHERE id_book = '$id_book'";
-        echo '<pre>';
-        echo $query;
-        echo '</pre>';
+        preg_match_all($reg,$query,$match);
+        if(!empty($match)){
         $result = $this->db->select($query);
+        } else {
+            return false;
+        }
         return $result;
     }
 

@@ -37,6 +37,16 @@ public function select($query){
     return false;
   }
  }
+// public function selectPre($query, $params){
+//   $result = $this->link->prepare($query) or 
+//    die($this->link->error.__LINE__);
+//    bind_param("s", $id);
+//   if($result->num_rows > 0){
+//     return $result;
+//   } else {
+//     return false;
+//   }
+//  }
  
 // Insert data
 public function insert($query){
