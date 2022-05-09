@@ -22,7 +22,7 @@ if ($token == $_GET['token']) {
         
     }
 } else {
-    header('Location: index.php');
+    header('Location: 404.php');
 }
 
 
