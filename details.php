@@ -14,9 +14,9 @@ include_once $filepath . '/classes/khuyenmai.php';
 $book = new sach();
 $khuyenmai = new khuyenmai();
 echo '<pre>';
-echo   'token='.$_SESSION['token'];
+echo   'token='.$_SESSION['token1'];
 echo '</pre>';
-if (isset($_GET['id_book']) && isset($_SESISON['token'])) {
+if (isset($_GET['id_book']) && isset($_SESISON['token1'])) {
     $id_book = $_GET['id_book'];
     $showBookById = $book->showBookByID($id_book);
     $result = $showBookById->fetch_assoc();

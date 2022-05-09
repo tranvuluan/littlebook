@@ -15,7 +15,7 @@ $book = new sach();
 $khuyenmai = new khuyenmai();
 $danhmuc = new danhmucsach();
 echo '<pre>'; 
-echo $_SESSION['token'];
+echo $_SESSION['token1'];
 echo '</pre>';
 isset($_SESSION['cart']) ? $_SESSION['cart'] : $_SESSION['cart'] = null;
 if (isset($_GET['id_bookaddtocart'])) {

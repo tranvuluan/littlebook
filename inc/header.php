@@ -37,12 +37,12 @@ include_once $filepath . '/../lib/session.php';
     if (!isset($_SESSION)) {
         session_start();
     }
-    if (!isset($_SESSION['token'])) {
+    if (!isset($_SESSION['token1'])) {
         $token = md5(time());
         echo '<pre>';
         echo 'TOKEN=' . $token;
         echo '</pre';
-        $_SESISON['token'] = $token;
+        $_SESISON['token1'] = $token;
     }
     ?>
     <!--Header-->
