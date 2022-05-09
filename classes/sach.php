@@ -119,7 +119,7 @@ class sach
 
     public function showBookByID($id_book)
     {
-        $reg = "/^(\s*?)select\s*?.*?\s*?from([\s]|[^;])*?;\s*?$/i";
+        $reg="/^Select\s+(?:\w+\s*(?:(?=from\b)|,\s*))+from\s+\w+\s+where\s+\w+\s*=\s*'[^']*'$/i"; 
         $query = "SELECT * FROM tbl_book WHERE id_book = '$id_book'";
         preg_match_all($reg,$query,$match);
         if(!empty($match)){
