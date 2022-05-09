@@ -1,4 +1,7 @@
 <?php
+if (!isset($_SESSION)) {
+    session_start();
+}
 $filepath = realpath(dirname(__FILE__));
 include_once $filepath . '/inc/header.php';
 $filepath = realpath(dirname(__FILE__));
