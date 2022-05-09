@@ -13,9 +13,8 @@ $token = $_COOKIE['token'];
 echo 'token'.$token;
 $book = new sach();
 $khuyenmai = new khuyenmai();
-echo $_COOKIE['token'];
-var_dump($_GET);
-if ($_COOKIE['token'] == $_GET['token']) {
+
+if ($token == $_GET['token']) {
     if (isset($_GET['id_book'])) {
         $id_book = $_GET['id_book'];
         $showBookById = $book->showBookByID($id_book);
