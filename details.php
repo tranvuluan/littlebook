@@ -23,6 +23,7 @@ if ($token == $_GET['token']) {
     }
 } else {
     header('Location: 404.php');
+    exit(-1);
 }
 
 
