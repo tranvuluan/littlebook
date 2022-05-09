@@ -1,27 +1,23 @@
 <?php
-if (!isset($_SESSION)) {
-    session_start();
-}
 $filepath = realpath(dirname(__FILE__));
 include_once $filepath . '/inc/header.php';
 $filepath = realpath(dirname(__FILE__));
 include_once $filepath . '/classes/sach.php';
 $filepath = realpath(dirname(__FILE__));
 include_once $filepath . '/classes/khuyenmai.php';
+ob_start();
 ?>
 
 <?php
+$token = $_COOKIE['token'];
+echo 'token'.$token;
 $book = new sach();
 $khuyenmai = new khuyenmai();
-echo '<pre>';
-echo   'token='.$_SESSION['token1'];
-echo '</pre>';
-if (isset($_GET['id_book']) && isset($_SESISON['token1'])) {
+if (isset($_GET['id_book'])) {
     $id_book = $_GET['id_book'];
     $showBookById = $book->showBookByID($id_book);
     $result = $showBookById->fetch_assoc();
-} else {
-    header('Location: index.php');
+    
 }
 
 isset($_SESSION['cart']) ? $_SESSION['cart'] : $_SESSION['cart'] = null;
@@ -157,4 +153,5 @@ if (isset($_GET['id_bookaddtocart'])) {
 <?php
 $filepath = realpath(dirname(__FILE__));
 include_once $filepath . '/inc/footer.php';
+ob_flush();
 ?>

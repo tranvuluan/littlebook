@@ -1,11 +1,26 @@
 <?php
+ob_start();
 $filepath = realpath(dirname(__FILE__));
 include_once $filepath . '/../lib/session.php';
 
 ?>
 
+<?php
+Session::init();
 
-<!doctype html>
+?>
+<?php
+if (!isset($_COOKIE['token'])) {
+$name = 'token';
+$value = md5(time());
+$expire = time() + (86400 * 90);
+$path = '/';
+setcookie($name, $value,$expire ,$path);
+}
+?>
+
+
+<!doctype html>     
 <html lang="en">
 
 <head>

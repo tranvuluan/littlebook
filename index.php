@@ -14,7 +14,6 @@ include_once($filepath . '/classes/sach.php');
 $book = new sach();
 $khuyenmai = new khuyenmai();
 $danhmuc = new danhmucsach();
-
 isset($_SESSION['cart']) ? $_SESSION['cart'] : $_SESSION['cart'] = null;
 if (isset($_GET['id_bookaddtocart'])) {
     $id_book = $_GET['id_bookaddtocart'];
@@ -44,22 +43,6 @@ if (isset($_GET['id_bookaddtocart'])) {
     unset($_GET['id_book']);
     header('Location: index.php');
 }
-
-?>
-<?php
-if (!isset($_SESSION)) {
-    session_start();
-}
-if (!isset($_SESSION['token1'])) {
-    $token = md5(time());
-    echo '<pre>';
-    echo 'TOKEN=' . $token;
-    echo '</pre';
-    $_SESISON['token1'] = $token;
-}
-echo '<pre>';
-echo $_SESSION['token1'];
-echo '</pre>';
 ?>
 <!-- Kết thúc header -->
 <!-- Phần danh mục và slide -->
@@ -229,7 +212,7 @@ echo '</pre>';
 
                                                                 echo $imagepath[0] ?>" alt="">
                             </div>
-                            <a onclick="showdetails(this)" href="details.php?id_book=<?php echo $result['id_book'] ?>&token=<?php echo $_SESSION['token'] ?>">
+                            <a onclick="showdetails(this)" href="details.php?id_book=<?php echo $result['id_book'] ?>">
                                 <h6 class="name" data-index="0"><?php echo $result['name_book'] ?></h6>
                                 <h5 class="price"><?php echo $result['price_book'] * (1 - $result['discountpercent']) ?>đ</h5>
                                 <h6 class="origin-price" style="text-decoration: line-through;display: inline;"><?php echo $result['price_book'] ?>đ</h6>
@@ -250,73 +233,73 @@ echo '</pre>';
 <div class="content-block slide-cntt">
     <div class="sale-off_top">
         <div class="sale-off_right">
-            <marquee behavior="scroll" direction="right">CÔNG NGHỆ THÔNG TIN</marquee>
+        <marquee behavior="scroll" direction="right">CÔNG NGHỆ THÔNG TIN</marquee>
         </div>
     </div>
     <div class=" content">
-        <!-- Content-left quảng cáo -->
-        <div class="content-left myslide-saleoff">
-            <div id="carouselId" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-target="#carouselId" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselId" data-slide-to="1"></li>
-                    <li data-target="#carouselId" data-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner" role="listbox">
-                    <div class="carousel-item active">
-                        <img src="image/CNTT_Index/Slide-left/hacking2.jpg" alt="">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="image/CNTT_Index/Slide-left/hacking1.jpg" alt="">
-                    </div>
+            <!-- Content-left quảng cáo -->
+            <div class="content-left myslide-saleoff">
+                <div id="carouselId" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselId" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselId" data-slide-to="1"></li>
+                        <li data-target="#carouselId" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner" role="listbox">
+                        <div class="carousel-item active">
+                            <img src="image/CNTT_Index/Slide-left/hacking2.jpg" alt="">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="image/CNTT_Index/Slide-left/hacking1.jpg" alt="">
+                        </div>
 
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="content-right">
-            <!-- Slide sách SaleOFF-->
-            <div class="owl-carousel owl-theme">
-                <?php
-                $showCnttBook = $book->showBookOfCNTT();
-                if ($showCnttBook) {
-                    while ($result1 = $showCnttBook->fetch_assoc()) {
-                ?>
-                        <div class="item">
-                            <div class="product-image">
-                                <div class="icon-product">
-                                    <i class="fa fa-search-plus" onclick="quickview('<?php echo $result1['id_book'] ?>');" aria-hidden="true" data-toggle="modal" data-target="#myModal" style="cursor: pointer;"></i>
-                                    <a href="?id_bookaddtocart=<?php echo $result1['id_book'] ?>" onclick="alert('Đã thêm sách vào giỏ hàng');"><i class="fa fa-cart-plus" aria-hidden="true"></i></a>
+            <div class="content-right">
+                <!-- Slide sách SaleOFF-->
+                <div class="owl-carousel owl-theme">
+                    <?php
+                    $showCnttBook = $book->showBookOfCNTT();
+                    if ($showCnttBook) {
+                        while ($result1 = $showCnttBook->fetch_assoc()) {
+                    ?>
+                            <div class="item">
+                                <div class="product-image">
+                                    <div class="icon-product">
+                                        <i class="fa fa-search-plus" onclick="quickview('<?php echo $result1['id_book'] ?>');" aria-hidden="true" data-toggle="modal" data-target="#myModal" style="cursor: pointer;"></i>
+                                        <a href="?id_bookaddtocart=<?php echo $result1['id_book'] ?>" onclick="alert('Đã thêm sách vào giỏ hàng');"><i class="fa fa-cart-plus" aria-hidden="true"></i></a>
 
+                                    </div>
+                                    <img src="uploads/images/book/<?php $imagepath = explode(',', $result1['image_book']);
+                                                                    echo $imagepath[0]; ?>" alt="">
                                 </div>
-                                <img src="uploads/images/book/<?php $imagepath = explode(',', $result1['image_book']);
-                                                                echo $imagepath[0]; ?>" alt="">
-                            </div>
-                            <a onclick="showdetails(this)" href="details.php?id_book=<?php echo $result1['id_book'] ?>">
-                                <h6 class="name" data-index="0"><?php echo $result1['name_book'] ?></h6>
-                                <?php
-                                if ($result1['salecheck_book'] === '2') {
-                                    $cnttbooksale = $khuyenmai->showBookSaleById_book($result1['id_book']);
-                                    if ($cnttbooksale) {
-                                        while ($resultsale = $cnttbooksale->fetch_assoc()) {
-                                ?>
-                                            <h5 class="price"><?php echo $resultsale['price_book'] * (1 - $resultsale['discountpercent']) ?>đ</h5>
-                                            <h6 class="origin-price" style="text-decoration: line-through;display: inline;"><?php echo $resultsale['price_book'] ?>đ</h6>
+                                <a onclick="showdetails(this)" href="details.php?id_book=<?php echo $result1['id_book'] ?>">
+                                    <h6 class="name" data-index="0"><?php echo $result1['name_book'] ?></h6>
                                     <?php
-
-                                        }
-                                    }
-                                } else {
+                                    if ($result1['salecheck_book'] === '2') {
+                                        $cnttbooksale = $khuyenmai->showBookSaleById_book($result1['id_book']);
+                                        if ($cnttbooksale) {
+                                            while ($resultsale = $cnttbooksale->fetch_assoc()) {
                                     ?>
-                                    <h5 class="price"><?php echo $result1['price_book'] ?>đ</h5>
-                                <?php } ?>
-                            </a>
-                        </div>
-                <?php
+                                                <h5 class="price"><?php echo $resultsale['price_book'] * (1 - $resultsale['discountpercent']) ?>đ</h5>
+                                                <h6 class="origin-price" style="text-decoration: line-through;display: inline;"><?php echo $resultsale['price_book'] ?>đ</h6>
+                                        <?php
+
+                                            }
+                                        }
+                                    } else {
+                                        ?>
+                                        <h5 class="price"><?php echo $result1['price_book'] ?>đ</h5>
+                                    <?php } ?>
+                                </a>
+                            </div>
+                    <?php
+                        }
                     }
-                }
-                ?>
+                    ?>
+                </div>
             </div>
-        </div>
     </div>
 
 </div>
