@@ -13,12 +13,17 @@ $token = $_COOKIE['token'];
 echo 'token'.$token;
 $book = new sach();
 $khuyenmai = new khuyenmai();
-if (isset($_GET['id_book'])) {
-    $id_book = $_GET['id_book'];
-    $showBookById = $book->showBookByID($id_book);
-    $result = $showBookById->fetch_assoc();
-    
+if ($_COOKIE['token'] == $_GET['token']) {
+    if (isset($_GET['id_book'])) {
+        $id_book = $_GET['id_book'];
+        $showBookById = $book->showBookByID($id_book);
+        $result = $showBookById->fetch_assoc();
+        
+    }
+} else {
+    header('Location: index.php');
 }
+
 
 isset($_SESSION['cart']) ? $_SESSION['cart'] : $_SESSION['cart'] = null;
 if (isset($_GET['id_bookaddtocart'])) {
