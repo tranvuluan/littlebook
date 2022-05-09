@@ -13,6 +13,13 @@ include_once $filepath . '/classes/khuyenmai.php';
 <?php
 $book = new sach();
 $khuyenmai = new khuyenmai();
+if (!isset($_SESSION['token'])) {
+    $token = md5(time());
+    echo '<pre>';
+    echo 'TOKEN='.$token;
+    echo '</pre';
+    $_SESISON['token'] = $token;
+}
 echo '<pre>';
 echo   'token='.$_SESSION['token'];
 echo '</pre>';
